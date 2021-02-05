@@ -26,3 +26,39 @@ def twoSum(nums, target):
         return []
 
 print(twoSum([2,7,11,15], 9))
+
+
+'''
+The binary search solution
+
+Time: O(nlogn)
+Space: O(1)
+
+
+class Solution:
+    def twoSum(self, nums: List[int], target: int) -> List[int]:
+        
+        for i in range(len(nums)):
+            num = nums[i]
+            num2 = target - num
+            if self.binary_search_recursive(nums, num2, 0, len(nums)-1) != -1 and i != self.binary_search_recursive(nums, num2, 0, len(nums)-1):
+                return sorted([self.binary_search_recursive(nums, num2, 0, len(nums)-1)+1, i+1])
+            else:
+                continue
+        return []
+        
+    
+    
+    def binary_search_recursive(self, array, target, start, end):
+        if start > end:
+            return -1
+
+        mid = (start + end) // 2
+        
+        if target == array[mid]:
+            return mid
+        if target < array[mid]:
+            return self.binary_search_recursive(array, target, start, mid-1)
+        else:
+            return self.binary_search_recursive(array, target, mid+1, end)
+'''
