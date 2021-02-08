@@ -19,6 +19,13 @@ is the same as the needle.
 Time: O(n^2)
 Space: O(1)
 
+        n, h = len(needle), len(haystack)
+
+        for s in range(h - n + 1):
+            if haystack[s: s + n] == needle:
+                return s
+        return -1
+
 '''
 
 
@@ -27,9 +34,6 @@ class Solution:
         # https://www.zhihu.com/question/314669016
         # https://blog.csdn.net/coder_orz/article/details/51708389
         # sliding windows
-        n, h = len(needle), len(haystack)
-
-        for s in range(h - n + 1):
-            if haystack[s: s + n] == needle:
-                return s
-        return -1
+        
+        
+        
